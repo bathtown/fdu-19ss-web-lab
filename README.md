@@ -19,7 +19,9 @@
 
 ## lab2
 
-* 参考： [git如何与原始仓库同步](https://blog.csdn.net/libing403/article/details/51729744)
+* 参考
+  * [git如何与原始仓库同步](https://blog.csdn.net/libing403/article/details/51729744)
+  * [git远程连接由http换成ssh](https://blog.csdn.net/u013983033/article/details/89393567)
 
 * 无意义占位符
 
