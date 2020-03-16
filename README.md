@@ -1,6 +1,6 @@
-# lab笔记
+# 2020 web应用基础 lab笔记
 
-## lab1
+## lab0
 
 * 略
 * 参考
@@ -17,7 +17,7 @@
   | `git merge [branch]`|取回来的与本地仓库合并|
   | `git push [remote] [branch]`|=fetch+merge|
 
-## lab2
+## lab1
 
 * 参考
   * [git如何与原始仓库同步](https://blog.csdn.net/libing403/article/details/51729744)
@@ -37,3 +37,38 @@
   |&|`&#38;`|`&amp;`|
   |<|`&#60;`|`&lt;`|
   |>|`&#62;`|`&gt;`|
+
+## lab2
+
+* [Git 忽略提交 .gitignore](https://www.jianshu.com/p/74bd0ceb6182)
+
+* JavaScript RegExp
+  * 示例：[html5pattern](http://html5pattern.com/)
+
+* `form` 表单
+
+  * 多选框`checkbox`
+
+    ```html
+    <form>
+      <p>您的常用设备</p>
+
+      <input type="checkbox" name="device" id="Android" value="Android">
+      <label for="Android">安卓手机</label>
+
+      <input type="checkbox" name="device" id="iPhone" value="iPhone">
+      <label for="iPhone"> iPhone </label>
+
+      <input type="checkbox" name="device" id="Windows" value="Windows">
+      <label for="Windows"> Windows </label>
+
+      <input type="checkbox" name="device" id="Mac" value="Mac">
+      <label for="Mac"> Mac </label>
+    </form>
+    ```
+
+  * radio的name需要相同,checkbox不需要一样
+
+  * 表单提交的是 `name` 而不是 `id`
+
+  * `label`使用方法：`for` 属性与表单元素的 `id` 属性绑定（`form` 属性似乎没用😶）
