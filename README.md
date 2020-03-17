@@ -40,10 +40,17 @@
 
 ## lab2
 
-* [Git 忽略提交 .gitignore](https://www.jianshu.com/p/74bd0ceb6182)
+* 👉[Git 忽略提交部分文件](https://www.jianshu.com/p/74bd0ceb6182)
 
 * JavaScript RegExp
   * 示例：[html5pattern](http://html5pattern.com/)
+
+* `name` 和 `id`
+  * `name` 独特作用
+    * `name` 传递 `form` 提交的值
+    * `<input type='radio'>` 同一类单选根据相同 `name` 属性实现
+    * `map` 中分布式相应图
+  * `radio` 的 `name` 需要相同，`checkbox` 不需要一样
 
 * `form` 表单
 
@@ -67,8 +74,12 @@
     </form>
     ```
 
-  * radio的name需要相同,checkbox不需要一样
+  * `label`使用方法：`for` 属性与表单元素的 `id` 属性绑定（`label` 的 `form` 属性似乎没用😶）
 
-  * 表单提交的是 `name` 而不是 `id`
+  * `readonly` 和 `disable` 区别
 
-  * `label`使用方法：`for` 属性与表单元素的 `id` 属性绑定（`form` 属性似乎没用😶）
+    | | `readonly` | `disable` |
+    |:-:|:-:|:-:|
+    |外观|无变化| 文本框变灰|
+    |作用对象|`<input type = "text/password">` 和 `<textarea>` | 所有表单元素|
+    |数据|会传值|不传值|
