@@ -50,7 +50,7 @@
     * `name` 传递 `form` 提交的值
     * `<input type='radio'>` 同一类单选根据相同 `name` 属性实现
     * `map` 中分布式相应图
-  * `radio` 的 `name` 需要相同，`checkbox` 不需要一样
+  * `radio` 的 `name` **相同**以实现单选（事先设置 `checked` 以实现必选），`checkbox` 的 `name` 不需要一样
 
 * `form` 表单
 
@@ -83,3 +83,5 @@
     |外观|无变化| 文本框变灰|
     |作用对象|`<input type = "text/password">` 和 `<textarea>` | 所有表单元素|
     |数据|会传值|不传值|
+
+  * 获得 `password` 密码：`document.getElementById("password").value`

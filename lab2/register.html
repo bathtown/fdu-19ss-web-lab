@@ -17,26 +17,26 @@
         <form action="#" method="POST">
 
             <div>
-                <label for="userName">用户名 </label>
+                <label for="userName">用户名<span>*</span></label>
                 <!-- 用户名为文本格式，只支持大小写字母、数字和下划线。 -->
                 <input type="text" id="userName" pattern="[A-Za-z0-9_]+" required>
             </div>
 
             <div>
-                <label for="password">请设置密码</label>
+                <label for="password">请设置密码<span>*</span></label>
                 <!-- 密码不能以明文展示，确认密码亦然，密码要求 8 位以上，只允许大小写字母加数字。 -->
-                <input type="password" id="password" pattern="[A-z0-9]{8,}" required>
+                <input type="password" id="password" pattern="[A-z0-9]{9,}" required>
             </div>
 
             <div>
-                <label for="repassword">请确认密码</label>
-                <input type="password" id="repassword">
+                <label for="repassword">请确认密码<span>*</span></label>
+                <input type="password" id="repassword" pattern="[A-z0-9]{9,}" required>
             </div>
 
             <div>
-                <label for="area">您的居住地</label>
+                <label for=" area">您的居住地<span>*</span></label>
                 <!-- 居住地为下拉菜单，内容为选至少 5 个省级行政区，默认选择“上海”，且“上海”不是第一行。 -->
-                <select id="area">
+                <select id="area" required>
                     <option value="Beijing">北京</option>
                     <option value="Shanghai" selected>上海</option>
                     <option value="Henan">河南</option>
@@ -46,7 +46,7 @@
             </div>
 
             <div>
-                <label for="telNum">您的手机号</label>
+                <label for="telNum">您的手机号<span>*</span></label>
                 <!-- 手机号为 1 开头 11 位数字格式。 -->
                 <input type="tel" id="telNum" pattern="[1][0-9]{10}" required>
             </div>
@@ -55,6 +55,7 @@
             <div>
                 <p>您的常用设备</p>
                 <!-- 常用设备为：安卓手机、iPhone、Windows、Mac，设备可多选。 -->
+                <!-- 注册要求用户名、密码、确认密码、居住地、手机号、常用设备、注册条款、验证码，常用设备选填，其他必填。 -->
                 <input type="checkbox" name="device" id="Android" value="Android"><label for="Android">安卓手机</label>
                 <input type="checkbox" name="device" id="iPhone" value="iPhone"><label for="iPhone">iPhone</label>
                 <input type="checkbox" name="device" id="Windows" value="Windows"><label for="Windows">Windows</label>
@@ -62,7 +63,7 @@
             </div>
 
             <div>
-                <p>请复查以下协议，并通过选择页面底部的复选框同意此协议。您必须同意这些协议条款才能继续。 </p>
+                <p>请复查以下协议，并通过选择页面底部的复选框同意此协议。您必须同意这些协议条款才能继续。<span>*</span></p>
                 <!-- 注册条款请用不可编辑的文本域，最后提供同意和不同意两个单选项，注册条款内容见 附录1。 -->
                 <textarea disabled>
 欢迎您来到知乎。
@@ -92,26 +93,58 @@
 知乎有权对用户使用知乎的情况进行审查和监督，如用户在使用知乎时违反任何上述规定，知乎或其授权的人有权要求用户改正或直接采取一切必要的措施（包括但不限于更改或删除用户张贴的内容、暂停或终止用户使用知乎的权利）以减轻用户不当行为造成的影响。
                 </textarea>
                 <div>
-                    <input type="radio" value="agree" id="agree">
+                    <input type="radio" value="agree" id="agree" name="agreement">
                     <label for="agree"> 同意 </label>
-                    <input type="radio" value="disagree" id="disagree">
+                    <input type="radio" value="disagree" id="disagree" name="agreement" checked>
                     <label for="disagree">不同意</label>
                 </div>
             </div>
 
             <div>
                 <!-- 验证码请随意，想怎么折腾就怎么折腾吧。 -->
+                <p>验证码<span>*</span></p>
                 <p>12-3=?</p>
-                <input type="text" required>
+                <input type="text" required id="verifiCode">
             </div>
 
             <div>
                 <!-- 页面最后有一个 注册 按钮，按钮点击后表单会被提交。 -->
-                <input type="submit" value="注册" name="register">
+                <input type="submit" value="注册" name="register" onclick="inspect()">
             </div>
 
         </form>
     </section>
+
+    <script>
+        function inspect() {
+            const passwordVal = document.getElementById("password").value;
+            const repasswordVal = document.getElementById("repassword").value;
+            console.log(passwordVal);
+
+            if (passwordVal == "") {
+                alert("请设置密码！");
+                return;
+            }
+            if (repasswordVal == "") {
+                alert("请确认密码！");
+                return;
+            }
+            if (passwordVal != repasswordVal) {
+                alert("确认密码必须和设置的密码相同！");
+                return;
+            }
+            const verifiCode = document.getElementById("verifiCode");
+            if (verifiCode.innerHTML != 9) {
+                alert("请输入正确验证码！");
+                return;
+            }
+            const agree = document.getElementsByName("agreement")[0];
+            if (!agree.checked) {
+                alert("请同意协议条款！");
+                return;
+            }
+        }
+    </script>
 </body>
 
 </html>
