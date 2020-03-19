@@ -111,7 +111,67 @@
 
   * 获得 `text` 内容： `document.getElementById("name").innerHTML`
 
-* 一个好看的渐变色
+* **[CSS选择器](https://www.runoob.com/cssref/css-selectors.html)**
+
+* HTML DOM
+  * DOM 是 Document Object Model（文档对象模型）的缩写
+  * 在 HTML DOM 中，所有事物都是节点。DOM 是被视为节点树的 HTML。  
+  <img src="./images/Dom.png" width=600px>
+  * 注：`<title>DOM 教程</title>`，元素节点 `<title>`，包含值为 "DOM 教程" 的**文本节点**，可通过节点的 innerHTML 属性来访问文本节点的值。
+  * HTML DOM 方法
+
+    | 方法 | 描述 | 备注 |
+    | :- | :- | :- |
+    |  `getElementById()` | 返回带有指定 ID 的元素 |
+    | `getElementsByTagName()` | 返回包含带有指定标签名称的所有元素的**节点数组** | `.length` 属性定义节点列表中节点的数量（或者某元素子节点数） |
+    | `getElementsByClassName()` | 返回包含带有指定类名的所有元素的**节点数组** |
+    | `appendChild()` | 插入新的子节点（元素） |
+    | `removeChild()` | 删除子节点（元素） | 或者直接用`remove()` |
+    | `replaceChild()` | 替换子节点。 |
+    | `insertBefore()` | 在指定的子节点前面插入新的子节点 | `element.insertBefore(inSertEl, originEle);` |
+    | `createAttribute()` | 创建属性节点 |
+    | `createElement()` | 创建**元素节点** |
+    | `createTextNode()` | 创建**文本节点** |
+    | `getAttribute()` | 返回指定的属性值 |
+    | `setAttribute()` | 把指定属性设置或修改为指定的值 |
+    | `write()` | 写入文本 | 不换行，`writeln()`要换行|
+
+  * HTML DOM 属性
+
+    | 属性 | 描述 | 备注 |
+    | :- | :- | :- |
+    | `innerHTML` | 节点（元素）的文本值 |
+    | `parentNode` | 节点（元素）的父节点 | DOM 不能在不引用父元素的情况下删除某个元素 |
+    | `childNodes` | 节点（元素）的子节点**们** |
+    | `attributes` | 节点（元素）的属性节点 |
+    | `firstChild` | 可用于访问元素的文本 |
+    | `nodeValue` | 根据节点的类型设置或返回节点的值 | 想返回元素的文本，返回的是文本节点的节点值（`element.childNodes[0].nodeValue`）（对 `<input>` 无效） |
+    | `value` | | 元素的值 |
+    | `textContent` | 属性设置或者返回指定节点的文本内容。| 这个属性同样可以返回所有子节点的文本 |
+
+  * 改变 HTML 样式：`document.getElementById("p2").style.fontFamily="Arial";`
+
+  * HTML DOM 事件
+
+    | 名称 | 描述 | 备注 |
+    | :- | :- | :- |
+    | `onload` | 用户进入 |
+    | `onunload` | 离开页面 |
+    | `onchange` | 常用于输入字段的验证 |
+    | `onmouseover` | 鼠标指针移动到元素 |
+    | `onmouseout` | 鼠标指针离开元素 |
+    | `onmousedown` | 当某个鼠标按钮被点击时 |
+    | `onclick` | 鼠标点击完成 |
+    | `onmouseup` | 鼠标按钮被松开 |
+
+  * 获取 HTML 中的元素：[Document](https://developer.mozilla.org/zh-CN/docs/Web/API/Document)
+
+  * [HTML DOM Event 对象](https://www.w3school.com.cn/jsref/dom_obj_event.asp)
+
+* 其他
+  * `<select>` 选中元素：`.selectedIndex`
+  * 表格内容对齐属性 align 和 vAlign
+  * 一个好看的渐变色
 
   ```css
     /* 相当于一个剪影，文字部分透出了背景的渐变，因为无法单独设定文字的渐变颜色 */
