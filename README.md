@@ -186,11 +186,56 @@
 
 ## lab3
 
-- 本次 lab 需要提交一份设计文档，主要介绍一下你对页面的设计体现在哪些地方（如果有自己的布局设计，把重要的布局讲一下就可以，类似于颜色、字体什么的可以略过。有能力的同学可以考虑画一个示意图来表示页面中各个组件的位置情况（不强制））
+- 设计文档
+
+  - 主页
+
+    - 导航栏，宽度 100%，固定在页面顶端
+
+      ```css
+      header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+      }
+      ```
+
+    - 侧边栏，固定在右侧
+
+      ```css
+      main aside {
+        box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
+        background-color: white;
+        border-radius: 10px;
+        position: fixed;
+        right: 20px;
+      }
+      ```
+
+    - 文章，水平居中
+
+      ```css
+      main article {
+        width: 50vw;
+        margin-right: 25vw;
+      }
+      ```
+
+  - 注册页面的导航栏同主页
+
+- 最后效果
+
+  - 主页
+
+    <img src="./images/home.png" width=600px>
+  
+  - 注册页
+  
+    <img src="./images/register.png" width=600px>
 
 - 细节
 
-  - 每段最后添加
+  - 每段最后添加文字
 
   ```css
   ... ::after {
