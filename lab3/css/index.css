@@ -1,0 +1,136 @@
+html {
+  font-size: 12px;
+  background-color: #fafafa;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  font-size: 1.4rem;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
+  background-color: white;
+  position: fixed;
+  width: 100%;
+}
+
+header div {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+header div a {
+  margin: auto 20px;
+}
+
+main {
+  padding: 10px;
+  display: flex;
+  margin-top: 60px;
+}
+
+main aside {
+  margin: 10px;
+  width: min(20vw, 200px);
+  font-size: 1.4rem;
+  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
+  background-color: white;
+  border-radius: 10px;
+  position: fixed;
+}
+
+main aside div {
+  margin: 20px;
+  text-align: center;
+}
+
+main aside div ul {
+  list-style: none;
+  width: 100%;
+}
+
+main aside div ul li {
+  padding: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+main article {
+  width: 50vw;
+  margin-left: 25vw;
+}
+
+main article .aQuestion {
+  margin: 20px;
+  font-size: 1.2rem;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
+  background-color: white;
+  border-radius: 10px;
+}
+
+main article .aQuestion .title {
+  font-size: 1.6rem;
+  line-height: 40px;
+  padding-bottom: 20px;
+}
+
+main article .aQuestion .author {
+  line-height: 30px;
+  font-weight: bold;
+}
+
+main article .aQuestion .author::after {
+  content: '：';
+}
+
+main article .aQuestion .abbrContent,
+main article .aQuestion .completeContent {
+  line-height: 30px;
+  font-size: 1.2rem;
+  padding-bottom: 20px;
+}
+
+main article .aQuestion .abbrContent::after {
+  content: '阅读全文​';
+  color: darkblue;
+  cursor: pointer;
+}
+
+main article .aQuestion blockquote {
+  padding: 10px 0;
+  color: #0084ff;
+  background-color: rgba(0, 132, 255, 0.1);
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+main article .aQuestion .completeContent ol {
+  list-style-type: arabic-indic;
+  line-height: 40px;
+  list-style-type: decimal;
+}
+
+main article .aQuestion .completeContent ol li {
+  list-style-type: decimal;
+  list-style-position: outside;
+  padding-left: 10px;
+  margin-left: 20px;
+}
+
+main article .pageNum {
+  text-align: center;
+  font-size: 1.4rem;
+  padding: 40px;
+  color: grey;
+  cursor: pointer;
+}
