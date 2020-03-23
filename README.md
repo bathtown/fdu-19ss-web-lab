@@ -227,11 +227,11 @@
 
   - 主页
 
-    <img src="./images/home.png" width=600px>
+    <img src="./images/home.png" width=800px>
 
-  - 注册页
+- 注册页
 
-    <img src="./images/register.png" width=600px>
+    <img src="./images/register.png" width=800px>
 
 - 细节
 
