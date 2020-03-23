@@ -229,7 +229,7 @@
 
     <img src="./images/home.png" width=800px>
 
-- 注册页
+  - 注册页
 
     <img src="./images/register.png" width=800px>
 
@@ -237,12 +237,12 @@
 
   - 每段最后添加文字
 
-  ```css
-  ... ::after {
-    content: '...​';
-  }
-  ```
+    ```css
+    ... ::after {
+      content: '...';
+    }
+    ```
 
-  从而减少 html 麻烦
+    从而减少 html 麻烦
 
   - 文本溢出换行：`word-wrap: break-word;`
