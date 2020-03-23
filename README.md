@@ -228,9 +228,9 @@
   - 主页
 
     <img src="./images/home.png" width=600px>
-  
+
   - 注册页
-  
+
     <img src="./images/register.png" width=600px>
 
 - 细节
