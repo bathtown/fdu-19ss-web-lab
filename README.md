@@ -199,3 +199,5 @@
   ```
 
   从而减少 html 麻烦
+
+  - 文本溢出换行：`word-wrap: break-word;`

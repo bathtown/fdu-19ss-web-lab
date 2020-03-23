@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Register</title>
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/register.css">
 </head>
 
 <body>
@@ -13,32 +13,32 @@
             <a href="./index.html">主页</a>
         </nav>
     </header>
-    <h1>创建帐户</h1>
-    <section>
+    <main>
+        <h1>创建帐户</h1>
 
         <form action="#" method="POST">
 
             <div>
-                <label for="userName">用户名<span>*</span></label>
+                <label for="userName" class="must">用户名</label>
                 <!-- 用户名为文本格式，只支持大小写字母、数字和下划线。 -->
                 <input type="text" id="userName" pattern="[A-z0-9_]+" title="用户名为文本格式，只支持大小写字母、数字和下划线。" required>
             </div>
 
             <div>
-                <label for="password">请设置密码<span>*</span></label>
+                <label for="password" class="must">请设置密码</label>
                 <!-- 密码不能以明文展示，确认密码亦然，密码要求 8 位以上，只允许大小写字母加数字。 -->
                 <input type="password" id="password" minlength="9" title="密码要求 8 位以上，只允许大小写字母加数字。"
                     pattern="[A-z0-9]{9,}" required>
             </div>
 
             <div>
-                <label for="repassword">请确认密码<span>*</span></label>
+                <label for="repassword" class="must">请确认密码</label>
                 <input type="password" id="repassword" minlength="9" title="确认密码要和设置的密码相同。" pattern="[A-z0-9]{9,}"
                     required>
             </div>
 
             <div>
-                <label for=" area">您的居住地<span>*</span></label>
+                <label for=" area" class="must">您的居住地</label>
                 <!-- 居住地为下拉菜单，内容为选至少 5 个省级行政区，默认选择“上海”，且“上海”不是第一行。 -->
                 <select id="area" required>
                     <option value="Beijing">北京</option>
@@ -50,14 +50,14 @@
             </div>
 
             <div>
-                <label for="telNum">您的手机号<span>*</span></label>
+                <label for="telNum" class="must">您的手机号</label>
                 <!-- 手机号为 1 开头 11 位数字格式。 -->
                 <input type="tel" id="telNum" pattern="[1][0-9]{10}" title="手机号为 1 开头 11 位数字格式。" required>
             </div>
 
 
             <div>
-                <p>您的常用设备</p>
+                <label>您的常用设备</label>
                 <!-- 常用设备为：安卓手机、iPhone、Windows、Mac，设备可多选。 -->
                 <!-- 注册要求用户名、密码、确认密码、居住地、手机号、常用设备、注册条款、验证码，常用设备选填，其他必填。 -->
                 <input type="checkbox" name="device" id="Android" value="Android"><label for="Android">安卓手机</label>
@@ -67,7 +67,7 @@
             </div>
 
             <div>
-                <p>请复查以下协议，并通过选择页面底部的复选框同意此协议。您必须同意这些协议条款才能继续。<span>*</span></p>
+                <p class="must">请复查以下协议，并通过选择页面底部的复选框同意此协议。您必须同意这些协议条款才能继续。</p>
                 <!-- 注册条款请用不可编辑的文本域，最后提供同意和不同意两个单选项，注册条款内容见 附录1。 -->
                 <textarea disabled>
 欢迎您来到知乎。
@@ -106,8 +106,10 @@
 
             <div>
                 <!-- 验证码请随意，想怎么折腾就怎么折腾吧。 -->
-                <p>验证码<span>*</span></p>
-                <p>12-3=?</p>
+                <div>
+                    <span class="must">验证码</span>
+                    <span class="verifyCode">12-3=?</span>
+                </div>
                 <input type="text" required title="验证码请随意，想怎么折腾就怎么折腾吧。" id="verifiCode">
             </div>
 
@@ -117,9 +119,9 @@
             </div>
 
         </form>
-    </section>
+    </main>
 
-    <!-- <script>
+    <script>
         function inspect() {
             const passwordVal = document.getElementById("password").value;
             const repasswordVal = document.getElementById("repassword").value;
@@ -148,7 +150,7 @@
                 return;
             }
         }
-    </script> -->
+    </script>
 </body>
 
 </html>

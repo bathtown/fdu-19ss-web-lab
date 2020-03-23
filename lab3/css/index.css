@@ -31,19 +31,20 @@ header div a {
 }
 
 main {
-  padding: 10px;
   display: flex;
+  flex-direction: row-reverse;
   margin-top: 60px;
 }
 
 main aside {
-  margin: 10px;
-  width: min(20vw, 200px);
+  margin: 20px;
+  width: 200px;
   font-size: 1.4rem;
   box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
   background-color: white;
   border-radius: 10px;
   position: fixed;
+  right: 20px;
 }
 
 main aside div {
@@ -64,7 +65,7 @@ main aside div ul li {
 
 main article {
   width: 50vw;
-  margin-left: 25vw;
+  margin-right: 25vw;
 }
 
 main article .aQuestion {
@@ -118,13 +119,16 @@ main article .aQuestion .completeContent ol {
   list-style-type: arabic-indic;
   line-height: 40px;
   list-style-type: decimal;
+  word-wrap: break-word;
 }
 
 main article .aQuestion .completeContent ol li {
   list-style-type: decimal;
   list-style-position: outside;
   padding-left: 10px;
+  word-break: keep-all;
   margin-left: 20px;
+  word-wrap: break-word;
 }
 
 main article .pageNum {
