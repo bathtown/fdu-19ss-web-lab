@@ -246,3 +246,41 @@
     从而减少 html 麻烦
 
   - 文本溢出换行：`word-wrap: break-word;`
+
+## lab4
+
+- JSON
+
+  - 用双引号 "" 和冒号 : 组成键值对，数据在名称/值对中
+  - 数据由逗号分隔
+  - 大括号保存对象
+  - 中括号保存数组
+
+  - 例子
+
+    ```js
+    {
+      "sites": [
+      { "name":"菜鸟教程" , "url":"www.runoob.com" },
+      { "name":"google" , "url":"www.google.com" },
+      { "name":"微博" , "url":"www.weibo.com" }
+      ]
+    }
+    ```
+
+    ```js
+    { "name":"runoob", "alexa":10000, "site":null }
+    ```
+
+  - JSON.parse() 方法将数据转换为 JavaScript 对象
+
+    ```js
+    var obj = JSON.parse('{ "name":"runoob", "alexa":10000, "site":"www.runoob.com" }')
+    ```
+
+  - JSON.stringify() 方法将 JavaScript 对象转换为字符串
+
+    ```js
+    var obj = { name: 'runoob', alexa: 10000, site: 'www.runoob.com' }
+    var myJSON = JSON.stringify(obj)
+    ```
