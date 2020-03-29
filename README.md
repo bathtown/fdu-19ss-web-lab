@@ -118,6 +118,7 @@
 - HTML DOM
 
   - DOM 是 Document Object Model（文档对象模型）的缩写
+  - **Document** 对象代表网页
   - 在 HTML DOM 中，所有事物都是节点。DOM 是被视为节点树的 HTML。  
     <img src="./images/Dom.png" width=600px>
   - 注：`<title>DOM 教程</title>`，元素节点 `<title>`，包含值为 "DOM 教程" 的**文本节点**，可通过节点的 innerHTML 属性来访问文本节点的值。
@@ -170,6 +171,15 @@
   - 获取 HTML 中的元素：[Document](https://developer.mozilla.org/zh-CN/docs/Web/API/Document)
 
   - [HTML DOM Event 对象](https://www.w3school.com.cn/jsref/dom_obj_event.asp)
+
+  - 冒泡 & 捕获
+    - 在 HTML DOM 中有两种事件传播的方法：冒泡和捕获。
+    - 事件传播是一种定义当发生事件时元素次序的方法。假如 <div> 元素内有一个 <p>，然后用户点击了这个 <p> 元素，应该首先处理哪个元素“click”事件？
+    - 在冒泡中，最内侧元素的事件会首先被处理，然后是更外侧的：首先处理 <p> 元素的点击事件，然后是 <div> 元素的点击事件。
+    - 在捕获中，最外侧元素的事件会首先被处理，然后是更内侧的：首先处理 <div> 元素的点击事件，然后是 <p> 元素的点击事件。
+    - 在 addEventListener() 方法中，你能够通过使用“useCapture”参数来规定传播类型：
+    - addEventListener(event, function, useCapture);
+    - 默认值是 false，将使用冒泡传播，如果该值设置为 true，则事件使用捕获传播。
 
 - 其他
 
@@ -283,4 +293,71 @@
     ```js
     var obj = { name: 'runoob', alexa: 10000, site: 'www.runoob.com' }
     var myJSON = JSON.stringify(obj)
+    ```
+
+- setInterval
+
+  - 一个计时函数
+
+    HTML
+
+    ```html
+    <p id="p1"></p>
+    ```
+
+    JS
+
+    ```js
+    const p1 = document.getElementById('p1')
+    setInterval(function() {
+      p1.innerHTML = new Date().toLocaleTimeString()
+    }, 1000)
+    ```
+
+  - 模拟进度条
+
+    css
+
+    ```css
+    #myProgress {
+      width: 100%;
+      height: 30px;
+      position: relative;
+      background-color: #fafafa;
+    }
+
+    #myBar {
+      background-color: #66b1ff;
+      width: 0;
+      height: 30px;
+      position: absolute;
+    }
+    ```
+
+    html
+
+    ```html
+    <div id="myProgress">
+      <div id="myBar"></div>
+    </div>
+    <button onclick="move()">点我</button>
+    ```
+
+    js
+
+    ```js
+    function move() {
+      var elem = document.getElementById('myBar')
+      var width = 0
+      var id = setInterval(frame, 10) // 如果时间间隔再短就会有搓顿感
+      function frame() {
+        if (width === 99.99999999999646) {
+          // 神奇的js
+          clearInterval(id)
+        } else {
+          width = width + 0.05
+          elem.style.width = width + '%'
+        }
+      }
+    }
     ```
