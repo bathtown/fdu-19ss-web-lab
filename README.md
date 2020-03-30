@@ -115,6 +115,18 @@
 
 - **[CSS 选择器](https://www.runoob.com/cssref/css-selectors.html)**
 
+  - 斑马纹
+
+    ```css
+    tr:nth-child(odd) {
+      background-color: #f5f5f5;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fff;
+    }
+    ```
+
 - HTML DOM
 
   - DOM 是 Document Object Model（文档对象模型）的缩写
@@ -187,12 +199,12 @@
   - 表格内容对齐属性 align 和 vAlign
   - 一个好看的渐变色
 
-  ```css
-  /* 相当于一个剪影，文字部分透出了背景的渐变，因为无法单独设定文字的渐变颜色 */
-  background: linear-gradient(90deg, #ff8a00, #e52e71);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* or: color: transparent; */
-  ```
+    ```css
+    /* 相当于一个剪影，文字部分透出了背景的渐变，因为无法单独设定文字的渐变颜色 */
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* or: color: transparent; */
+    ```
 
 ## lab3
 
@@ -365,4 +377,28 @@
 ## lab4
 
 - 学习 [Bootstrap](https://v3.bootcss.com/)
+
   - Bootstrap 没有页脚样式，解决
+
+- jQuery
+
+  - DOM 操作
+    | 选择器 | 方法 |
+    | --- | --- |
+    | id="intro" | `var myElement = $("#id01");` |
+    | `<p>` 元素 | `var myElements = $("p");` |
+    | class="intro" | `var myElements = $(".intro");` |
+    | `<p class="intro">` | `var myElements = $("p.intro");` |
+
+  - 方法
+    | 方法 | 代码 |
+    | --- | --- |
+    | 设置 HTML 元素的内部文本 | `myElement.text("Hello China!");` |
+    | 获取 HTML 元素的内部文本 | `var myText = myElement.text();` |
+    | 设置元素的 HTML 内容 | `var myElement.html("<p>Hello World</p>");` |
+    | 获取元素的 HTML 内容 | `var content = myElement.html();` |
+    | 隐藏一个 HTML 元素 | `myElement.hide();` |
+    | 显示一个 HTML 元素 |`myElement.show();` |
+    | 更改 HTML 元素的字体尺寸 | `myElement.css("font-size","35px");` |
+    | 删除 HTML 元素 |`$("#id").remove();`|
+    | 获取父元素 | `var myParent = myElement.parent();`|
