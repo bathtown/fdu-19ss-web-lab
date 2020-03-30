@@ -39,19 +39,16 @@ main {
   bottom: 0;
 }
 
-.carousel-control.right,
 .carousel-control.left {
-  background-image: none;
+  background-image: linear-gradient(to right, rgba(51, 51, 51, 0.5) 0%, rgba(51, 51, 51, 0.0001) 100%);
+}
+
+.carousel-control.right {
+  background-image: linear-gradient(to right, rgba(51, 51, 51, 0.0001) 0%, rgba(51, 51, 51, 0.5) 100%);
 }
 
 .item {
   height: 125vw;
-}
-
-@media (min-width: 1200px) {
-  .item {
-    height: 45vw;
-  }
 }
 
 /* footer */
@@ -86,4 +83,19 @@ footer a:hover {
 .copyright {
   color: white;
   text-align: center;
+}
+
+/* back-to-top */
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  text-decoration: none;
+}
+
+.glyphicon {
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 36px;
 }

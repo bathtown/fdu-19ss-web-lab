@@ -249,11 +249,11 @@
 
   - 主页
 
-    <img src="./images/home.png" width=800px>
+    <img src="./images/lab3-home.png" width=800px>
 
   - 注册页
 
-    <img src="./images/register.png" width=800px>
+    <img src="./images/lab3-register.png" width=800px>
 
 - 细节
 
@@ -378,7 +378,89 @@
 
 - 学习 [Bootstrap](https://v3.bootcss.com/)
 
-  - Bootstrap 没有页脚样式，解决
+  - 引入
+
+    - 下载源文件
+    - 引用 CDN
+
+      ```html
+      <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous"
+      />
+
+      <!-- 注意要先引入jQuery，这是百度的CDN -->
+      <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+      <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"
+      ></script>
+      ```
+
+  - 使用方法——找了复制
+
+    - [组件](https://v3.bootcss.com/components/)
+    - [全局 CSS 样式](https://v3.bootcss.com/css/)
+    - [JavaScript 插件](https://v3.bootcss.com/javascript/)
+    - [在线编辑](https://www.runoob.com/try/bootstrap/layoutit/)
+    - [定制 Bootstrap](https://v3.bootcss.com/customize/)
+
+  - 为什么不用 Element UI？
+
+- 设计手册
+
+  - 思路
+
+    <img src="./images/lab4-design.png" width=600px>
+
+    - nav 固定在页面顶端，且不随页面滚动而变化
+    - main 中放置图片—— 切换使用 carousel 传送带
+    - footer 位于页面最下面，不满一页也固定在底部
+
+  - 具体实现困难
+
+    - 导航栏固定在顶部，格外添加 top 才能回到顶部（纯 html👍）
+
+      HTML
+
+      ```html
+      <!-- 顶部 -->
+      <div id="top"></div>
+
+      <!-- 返回顶部按钮 -->
+      <a class="back-to-top" href="#top"><span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span></a>
+      ```
+
+    - Bootstrap 没有页脚样式，解决方法：
+
+      HTML
+
+      ```html
+      <body class="Site">
+        <header>...</header>
+        <main class="Site-content">...</main>
+        <footer>...</footer>
+      </body>
+      ```
+
+      CSS
+
+      ```css
+      .Site {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+      .Site-content {
+        flex: 1;
+      }
+      ```
 
 - jQuery
 

@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- font-awesome -->
   <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
   <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-  <!-- <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"> -->
-
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
   <link href="index.css" rel="stylesheet">
+  <!-- jQuery -->
   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
@@ -22,6 +22,9 @@
 
 <body>
 
+  <div id="top"></div>
+
+  <!-- nav -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -104,7 +107,7 @@
     </div>
   </main>
 
-  <footer class="footer">
+  <!-- <footer class="footer">
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -119,15 +122,32 @@
       </div>
     </div>
     </div>
+  </footer> -->
 
+  <footer class="footer">
+    <section class="container">
+      <copyright id="copyright">Copyright © 2020 Bathtub Inc. All rights reserved.</copyright>
+      <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <a href="../html/privacy.html">Privacy Policy</a>
+          <a href="../html/usage.html">Terms of Use</a>
+          <a href="../html/legal.html">Legal</a>
+          <a href="../html/siteMap.html">Site Map</a>
+        </div>
+      </div>
+    </section>
     <div id="copyrightRow">
       <div class="container">
         <div class="row">
-          <p class="copyright">Copyright © 2019-2021 Web fundamental. All Rights Reserved. 备案号：沪BILIBILI备12138号-1</p>
+          <p class="copyright">Copyright © 2020 Bathtub Inc. All rights reserved.</p>
+          <p class="copyright">沪ICP备20200318</p>
+          <p class="copyright">营业执照 创意丧失工坊备案编号18307130207</p>
         </div>
       </div>
     </div>
   </footer>
+
+  <a class="back-to-top" href="#top"><span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span></a>
 
 </body>
 
