@@ -66,6 +66,6 @@ e.g. //github.com/mondaylord/SOFT130002_lab
 
 ## DDL
 
-截止时间为 **2020 年 4 月 5 日 23:59:59**
+截止时间为 **2020 年 4 月 5 日 23:59:59**
 
 请大家 push 完成后记得去 elearning 上提交，具体提交内容见 elearning 上要求。
