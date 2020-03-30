@@ -10,10 +10,18 @@
   padding: 6px 6px;
 }
 
+.container-fluid {
+  background-color: #080808;
+}
+
 /* main pictures */
 
 .carousel {
   margin-top: 50px;
+}
+
+.item {
+  height: 125vw;
 }
 
 /* footer */
