@@ -365,3 +365,4 @@
 ## lab4
 
 - 学习 [Bootstrap](https://v3.bootcss.com/)
+  - Bootstrap 没有页脚样式，解决
