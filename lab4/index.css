@@ -7,18 +7,16 @@ body {
 
 /* nav bar */
 
-.navbar {
-  margin-bottom: 0;
-  height: 50px;
-  border-radius: 0;
-}
-
 .navbar-brand {
   padding: 6px 6px;
 }
 
 .container-fluid {
   background-color: #080808;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: rgb(255, 255, 255, 0.8);
 }
 
 /* main pictures */
@@ -49,6 +47,24 @@ main {
   background-image: linear-gradient(to right, rgba(51, 51, 51, 0.0001) 0%, rgba(51, 51, 51, 0.5) 100%);
 }
 
+.onePic {
+  margin-bottom: 20px;
+}
+
+.onePic:hover {
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+
+.caption {
+  padding: 10px;
+  color: #fff;
+  position: absolute;
+  bottom: 10px;
+}
+
 /* footer */
 
 footer {
@@ -69,16 +85,15 @@ footer a:hover {
 }
 
 /* back-to-top */
-.back-to-top {
+#back-to-top {
+  line-height: 36px;
+  height: 36px;
   position: fixed;
   bottom: 40px;
-  right: 20px;
+  right: 30px;
   text-decoration: none;
-}
-
-.glyphicon {
-  color: rgba(255, 255, 255, 0.8);
-  margin-top: 5px;
-  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  border: none;
   font-size: 36px;
 }

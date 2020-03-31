@@ -462,7 +462,21 @@
       }
       ```
 
-    - 栅栏参数
+  - 栅栏参数
+
+  - 最后效果
+
+    - phone
+
+      <img src="./lab4/images/rendering/lab4_FHD_roted.png" width=400px>
+
+    - FHD
+
+      <img src="./lab4/images/rendering/lab4_FHD.gif" width=600px>
+
+    - roted screen
+
+      <img src="./lab4/images/rendering/lab4_phone.gif">
 
 - jQuery
 
