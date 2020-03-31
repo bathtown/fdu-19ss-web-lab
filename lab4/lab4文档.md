@@ -62,7 +62,7 @@ e.g. //github.com/mondaylord/SOFT130002_lab
 
 如下：
 
-![sample](sample.png)
+![sample](./images/sample.png)
 
 ## DDL
 

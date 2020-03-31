@@ -27,31 +27,34 @@
   <!-- nav -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
+
+      <!-- 这一部分是用来适配移动端的 -->
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1"
+          aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
+          <!-- 这是三条横杠 -->
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="https://www.pexels.com/"><img alt="Brand" src="./images/pexels-white.png"
-            width="113.2px" height="40px"></a>
+            width="110px"></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav nav-pills">
           <li class="active"><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
           <li><a href="src/html/browse.html">Browse</a></li>
           <li><a href="src/html/search.html">Search</a></li>
         </ul>
         <ul class="nav navbar-nav nav-pills navbar-right">
-          <li role="presentation" class="dropdown">
+          <li role="presentation" class="dropdown ">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-              aria-expanded="true">My account <span class="caret"></span></a>
-            <ul class="dropdown-menu">
+              aria-expanded="true"><i class="fa fa-user"></i> My account<span class="caret"></span></a>
+            <ul class="dropdown-menu ">
               <li><a href="src/html/upload.html"><i class="fa fa-upload"></i> Upload</a></li>
               <li><a href="src/html/myUpload.html"><i class="fa fa-photo"></i> My Photo</a></li>
               <li><a href="src/html/favorite.html"><i class="fa fa-heart"></i> My Favorite</a></li>
@@ -64,87 +67,160 @@
   </nav>
 
   <main>
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div id="my-carousel" class="carousel slide" data-ride="carousel">
 
+      <!-- 幻灯片 -->
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img src="./images/drone-footage-of-a-beach-3556117.jpg" alt="...">
+          <img src="./images/drone-footage-of-a-beach-3556117.jpg" alt="Drone Footage of A Beach">
           <div class="carousel-caption">
             Drone Footage of A Beach
           </div>
         </div>
         <div class="item">
-          <img src="./images/four-orange-jellyfish-wallpaper-1784578.jpg" alt="...">
+          <img src="./images/four-orange-jellyfish-wallpaper-1784578.jpg" alt="Four Orange Jellyfish">
           <div class="carousel-caption">
             Four Orange Jellyfish
           </div>
         </div>
         <div class="item">
-          <img src="./images/snow-covered-mountain-under-blue-sky-3853501.jpg" alt="...">
+          <img src="./images/snow-covered-mountain-under-blue-sky-3853501.jpg"
+            alt="Snow Covered Mountain under Blue Sky">
           <div class="carousel-caption">
             Snow Covered Mountain under Blue Sky
           </div>
         </div>
       </div>
 
+      <!-- 显示第几张图片 -->
       <!-- Indicators -->
       <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#my-carousel" data-slide-to="1"></li>
+        <li data-target="#my-carousel" data-slide-to="2"></li>
       </ol>
 
+      <!-- 左右控制 -->
       <!-- Controls -->
-      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <a class="left carousel-control" href="#my-carousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <a class="right carousel-control" href="#my-carousel" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
     </div>
+
+    <!-- 一行 -->
+    <div class="row">
+      <div class="col-md-3 col-xs-6">
+        <div class="thumbnail">
+          <img src="./images/four-orange-jellyfish-wallpaper-1784578.jpg" alt="..." height="300px">
+          <div class="caption">
+            <h3>Tittle</h3>
+            <p>This is a beautiful pictures, would you...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-xs-6">
+        <div class="thumbnail">
+          <img src="./images/four-orange-jellyfish-wallpaper-1784578.jpg" alt="..." height="300px">
+          <div class="caption">
+            <h3>Tittle</h3>
+            <p>This is a beautiful pictures, would you...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-xs-6">
+        <div class="thumbnail">
+          <img src="./images/four-orange-jellyfish-wallpaper-1784578.jpg" alt="..." height="300px">
+          <div class="caption">
+            <h3>Tittle</h3>
+            <p>This is a beautiful pictures, would you...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-xs-6">
+        <div class="thumbnail">
+          <img src="./images/four-orange-jellyfish-wallpaper-1784578.jpg" alt="..." height="300px">
+          <div class="caption">
+            <h3>Tittle</h3>
+            <p>This is a beautiful pictures, would you...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 一行 -->
+    <div class="row">
+      <div class="col-md-3 col-xs-6">
+        <div class="thumbnail">
+          <img src="./images/four-orange-jellyfish-wallpaper-1784578.jpg" alt="..." height="300px">
+          <div class="caption">
+            <h3>Tittle</h3>
+            <p>This is a beautiful pictures, would you...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-xs-6">
+        <div class="thumbnail">
+          <img src="./images/four-orange-jellyfish-wallpaper-1784578.jpg" alt="..." height="300px">
+          <div class="caption">
+            <h3>Tittle</h3>
+            <p>This is a beautiful pictures, would you...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-xs-6">
+        <div class="thumbnail">
+          <img src="./images/four-orange-jellyfish-wallpaper-1784578.jpg" alt="..." height="300px">
+          <div class="caption">
+            <h3>Tittle</h3>
+            <p>This is a beautiful pictures, would you...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-xs-6">
+        <div class="thumbnail">
+          <img src="./images/four-orange-jellyfish-wallpaper-1784578.jpg" alt="..." height="300px">
+          <div class="caption">
+            <h3>Tittle</h3>
+            <p>This is a beautiful pictures, would you...</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
-  <!-- <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <p><a>使用条款</a></p>
-          <p><a>隐私保护</a></p>
-          <p><a>Cookie</a></p>
-        </div>
-        <div class="col-md-3">
-          <p><a>关于</a></p>
-          <p><a>联系我们</a></p>
-        </div>
-      </div>
-    </div>
-    </div>
-  </footer> -->
-
   <footer class="footer">
+
     <section class="container">
-      <copyright id="copyright">Copyright © 2020 Bathtub Inc. All rights reserved.</copyright>
       <div class="row">
-        <div class="col-sm-6 col-md-4">
-          <a href="../html/privacy.html">Privacy Policy</a>
-          <a href="../html/usage.html">Terms of Use</a>
-          <a href="../html/legal.html">Legal</a>
-          <a href="../html/siteMap.html">Site Map</a>
-        </div>
+        <div class="col-xs-6"> <a href="../html/privacy.html">Privacy Policy</a> </div>
+        <div class="col-xs-6"> <a href="../html/usage.html">Terms of Use</a> </div>
+        <div class="col-xs-6"> <a href="../html/legal.html">Legal</a> </div>
+        <div class="col-xs-6"> <a href="../html/siteMap.html">Site Map</a> </div>
       </div>
     </section>
+
     <div id="copyrightRow">
       <div class="container">
         <div class="row">
-          <p class="copyright">Copyright © 2020 Bathtub Inc. All rights reserved.</p>
-          <p class="copyright">沪ICP备20200318</p>
-          <p class="copyright">营业执照 创意丧失工坊备案编号18307130207</p>
+          <div class="col-xs-12 col-md-6">Copyright © 2020 Bathtub Inc. All rights reserved. </div>
+          <div class="col-xs-12 col-md-3">沪ICP备20200318 营业执照</div>
+          <div class="col-xs-12 col-md-3">创意丧失工坊备案编号18307130207</div>
         </div>
       </div>
     </div>
+
   </footer>
 
   <a class="back-to-top" href="#top"><span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span></a>
