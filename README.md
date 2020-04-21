@@ -1,5 +1,7 @@
 # 2020 web 应用基础 lab 笔记
 
+- sorces:[fdu-19ss-web-lab](https://github.com/fudansswebfundamental/fdu-19ss-web-lab)
+
 ## lab0
 
 - 实验步骤：略
@@ -297,14 +299,14 @@
   - JSON.parse() 方法将数据转换为 JavaScript 对象
 
     ```js
-    var obj = JSON.parse('{ "name":"runoob", "alexa":10000, "site":"www.runoob.com" }')
+    var obj = JSON.parse('{ "name":"runoob", "alexa":10000, "site":"www.runoob.com" }');
     ```
 
   - JSON.stringify() 方法将 JavaScript 对象转换为字符串
 
     ```js
-    var obj = { name: 'runoob', alexa: 10000, site: 'www.runoob.com' }
-    var myJSON = JSON.stringify(obj)
+    var obj = { name: 'runoob', alexa: 10000, site: 'www.runoob.com' };
+    var myJSON = JSON.stringify(obj);
     ```
 
 - setInterval
@@ -320,10 +322,10 @@
     JS
 
     ```js
-    const p1 = document.getElementById('p1')
-    setInterval(function() {
-      p1.innerHTML = new Date().toLocaleTimeString()
-    }, 1000)
+    const p1 = document.getElementById('p1');
+    setInterval(function () {
+      p1.innerHTML = new Date().toLocaleTimeString();
+    }, 1000);
     ```
 
   - 模拟进度条
@@ -359,16 +361,16 @@
 
     ```js
     function move() {
-      var elem = document.getElementById('myBar')
-      var width = 0
-      var id = setInterval(frame, 10) // 如果时间间隔再短就会有搓顿感
+      var elem = document.getElementById('myBar');
+      var width = 0;
+      var id = setInterval(frame, 10); // 如果时间间隔再短就会有搓顿感
       function frame() {
         if (width === 99.99999999999646) {
           // 神奇的js
-          clearInterval(id)
+          clearInterval(id);
         } else {
-          width = width + 0.05
-          elem.style.width = width + '%'
+          width = width + 0.05;
+          elem.style.width = width + '%';
         }
       }
     }
@@ -481,7 +483,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="https://www.pexels.com/"><img alt="Brand" src="./images/example/pexels-white.png" width="110px"/></a>
+            <a class="navbar-brand" href="https://www.pexels.com/"><img alt="Brand" src="./images/example/pexels-white.png" width="110px" /></a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -576,3 +578,5 @@
     | 更改 HTML 元素的字体尺寸 | `myElement.css("font-size","35px");` |
     | 删除 HTML 元素 |`$("#id").remove();`|
     | 获取父元素 | `var myParent = myElement.parent();`|
+
+## lab5
