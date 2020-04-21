@@ -580,3 +580,5 @@
     | 获取父元素 | `var myParent = myElement.parent();`|
 
 ## lab5
+
+见 [设计文档](./lab5/lab5设计文档%20.md)

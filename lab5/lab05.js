@@ -14,21 +14,20 @@ function showWindowHref () {
   const str = url.value;
   // reset output value
   url_result.value = "";
-  // test
-  // console.log(str);
   // empty case
   if (str.match("name") === null) {
-    url_result.value = "no name, please try again :)";
+    url_result.value = "no 'name', please try again :)";
   }
   else {
     // use RegExp :)
-    // "name = value&", value contains any letter except '&'
-    const reg = /(name)=(.[^&]+)/g;
+    // "name=value&..." or "name=value", value may contain '&', so we should be careful!
+    // **BUG: hjsdghgbj?name=&&&group=876
+    const reg = /name=(.[^&]*)/g;
     var match = reg.exec(str);
     while (match !== null) {
       // console.log(match);
-      // match is like: ["name=software", "name", "software", index: 0, input: "name=software&content=hello...", groups: undefined]
-      url_result.value += match[2] + " ";
+      // match is like: ["name=software", "software", index: 0, input: "name=software&content=hello", groups: undefined]
+      url_result.value += match[1] + " ";
       // repeat
       match = reg.exec(str);
     }
@@ -42,8 +41,18 @@ function showWindowHref () {
 
 //提示：mul为html中id为"mul"的元素对象，可直接通过mul.value获得其内的输入值。
 let mul = document.getElementById("mul");
-function timeTest () {
-}
+(function timeTest () {
+  mul.value = 1;
+  var add = setInterval(mulValueAdd, 5000);
+  function mulValueAdd () {
+    mul.value *= 2;
+    // console.log(mul.value);
+    // console.log(new Date().getSeconds());
+    // !! INFO: note that mul.value is a String!
+    if ((new Date().getSeconds() === 0) || (mul.value === "1024"))
+      clearInterval(add);
+  }
+})();
 //3. 判断输入框most里出现最多的字符，并统计出来。统计出是信息在most_result输入框内以"The most character is:" + index + " times:" + max的形式显示。
 //如果多个出现数量一样则选择一个即可。
 //请仅在arrSameStr函数内写代码。
@@ -54,5 +63,30 @@ let result = document.getElementById("most-result");
 let most_submit = document.getElementById("most_submit");
 most_submit.addEventListener('click', arrSameStr);
 function arrSameStr () {
-
+  const letterArr = most.value.split('');
+  const letterArrLen = letterArr.length;
+  // console.log(letterArr);
+  let letterWeight = {};
+  for (let i = 0; i < letterArrLen; i++) {
+    // !! INFO: note that  letterWeight.letterArr[i] is useless and letterWeight[letterArr[i]] is better!
+    if (letterWeight.hasOwnProperty(letterArr[i]))
+      letterWeight[letterArr[i]] += 1;
+    else
+      letterWeight[letterArr[i]] = 1;
+  }
+  // console.log(letterWeight);
+  var letters = Object.getOwnPropertyNames(letterWeight);
+  // console.log(letters);
+  const letterLen = letters.length;
+  // initialize
+  let index = letters[0];
+  let max = letterWeight[index];
+  for (let j = 1; j < letterLen; j++) {
+    if (letterWeight[index] < letterWeight[letters[j]]) {
+      index = letters[j];
+      max = letterWeight[letters[j]];
+    }
+  }
+  result.value = "The most character is:" + index + " times:" + max;
+  // console.log(result.value);
 }
