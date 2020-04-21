@@ -79,9 +79,15 @@ function arrSameStr() {
 }
 ```
 
-## 完成效果
+## 相关截图
+
+完成效果
 
 <img src="./img/网页效果.png" width=800px />
+
+GitHub 截图
+
+<img src="./img/GitHub.png" width=800px />
 
 ## 相关知识
 
