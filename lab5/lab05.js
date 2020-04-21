@@ -8,9 +8,33 @@
 let url = document.getElementById("url");
 let url_submit = document.getElementById("url_submit");
 let url_result = document.getElementById("url-result");
-url_submit.addEventListener('click',showWindowHref);
-function showWindowHref(){
-
+url_submit.addEventListener('click', showWindowHref);
+function showWindowHref () {
+  // get input value
+  const str = url.value;
+  // reset output value
+  url_result.value = "";
+  // test
+  // console.log(str);
+  // empty case
+  if (str.match("name") === null) {
+    url_result.value = "no name, please try again :)";
+  }
+  else {
+    // use RegExp :)
+    // "name = value&", value contains any letter except '&'
+    const reg = /(name)=(.[^&]+)/g;
+    var match = reg.exec(str);
+    while (match !== null) {
+      // console.log(match);
+      // match is like: ["name=software", "name", "software", index: 0, input: "name=software&content=hello...", groups: undefined]
+      url_result.value += match[2] + " ";
+      // repeat
+      match = reg.exec(str);
+    }
+    // delete blank at both ends
+    url_result.value = url_result.value.trim();
+  }
 }
 //2. 每隔五秒运行一次函数直到某一整分钟停止，比如从20:55:45运行到20:56:00停止；或者运行10次，先到的为准。从1开始每过五秒，输入框内数值翻倍。初始值为1。
 //注意：你可以在函数 timeTest内部 和 timeTest外部 写代码使得该功能实现。
@@ -18,7 +42,7 @@ function showWindowHref(){
 
 //提示：mul为html中id为"mul"的元素对象，可直接通过mul.value获得其内的输入值。
 let mul = document.getElementById("mul");
-function timeTest(){
+function timeTest () {
 }
 //3. 判断输入框most里出现最多的字符，并统计出来。统计出是信息在most_result输入框内以"The most character is:" + index + " times:" + max的形式显示。
 //如果多个出现数量一样则选择一个即可。
@@ -28,7 +52,7 @@ function timeTest(){
 let most = document.getElementById("most");
 let result = document.getElementById("most-result");
 let most_submit = document.getElementById("most_submit");
-most_submit.addEventListener('click',arrSameStr);
-function arrSameStr(){
+most_submit.addEventListener('click', arrSameStr);
+function arrSameStr () {
 
 }
