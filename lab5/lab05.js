@@ -15,7 +15,7 @@ function showWindowHref () {
   // reset output value
   url_result.value = "";
   // empty case
-  if (str.match("name") === null) {
+  if (str.match(/[?|&]name/) === null) {
     url_result.value = "no 'name', please try again :)";
   }
   else {
