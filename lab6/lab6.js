@@ -10,10 +10,33 @@
     ②使用console.log打印计数即可，到达一分钟提前停止也需要console.log相应的提示语句。
 */
 
-function testTime(){
-
+function timeTest () {
+    const start = new Date();
+    let value = 1;
+    let counter = 0;
+    function double () {
+        value *= 2;
+        counter++;
+        console.log("value is " + value + " now, second is " + new Date().getSeconds() + " now.");
+    }
+    const check = setInterval(function () {
+        let now = new Date();
+        // 每隔五秒运行一次 double 函数
+        if ((60 + now.getSeconds() - start.getSeconds()) % 5 === 0) {
+            double();
+        }
+        // 到某一整分钟停止
+        if (now.getMinutes() !== start.getMinutes()) {
+            console.log("second is " + new Date().getSeconds() + " now. 到某一整分钟，停止。");
+            return clearInterval(check);
+        } // 运行10次停止
+        else if (counter === 10) {
+            console.log("value is " + value + " now, 运行10次，停止。");
+            return clearInterval(check);
+        }
+    }, 1000);
 }
-// testTime();
+timeTest();
 
 /*
 2.
@@ -23,9 +46,27 @@ function testTime(){
     ③邮箱字符串的正则匹配的理解需写入lab文档。
     ④telephone与mail均是字符串。
 */
-function testMail(telephone,mail) {
-
+function testMail (telephone, mail) {
+    // 中国移动：China Mobile 134,135,136,137,138,139,150,151,152,157,158,159,182,183,184,187,188,147,178,1705
+    var teleRegExp = /(^1(3[4-9]|4[7]|5[0-27-9]|7[8]|8[2-478])\d{8}$)|(^1705\d{7}$)/;
+    // 邮箱规范：最好不要设置 :)，参见 http://html5pattern.com/Emails
+    // 但我还是加了对 @ 和 . 的判断
+    let mailExpReg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+    if (teleRegExp.test(telephone) && (mailExpReg.test(mail))) {
+        // 都对
+        console.log("The telephone is right and the mail is right!");
+    } else if (!(mailExpReg.test(mail)) && teleRegExp.test(telephone)) {
+        // 邮箱错了
+        console.log("The telephone is right and the mail is wrong!");
+    } else if (mailExpReg.test(mail) && !(teleRegExp.test(telephone))) {
+        // 电话错了
+        console.log("The telephone is wrong and the mail is right!");
+    } else {
+        // 都错了
+        console.log("The telephone is wrong and the mail is wrong!");
+    }
 }
+testMail('12312312311', '12@qw.qw');
 
 /*
 3.
@@ -36,7 +77,7 @@ function testMail(telephone,mail) {
     ④对该函数中用的正则匹配的理解需写入lab文档。
     ⑤str为字符串。
 */
-function testRedundancy(str) {
+function testRedundancy (str) {
 
 }
 
@@ -55,7 +96,7 @@ function testRedundancy(str) {
 注意：
     ①注意联系生活，并注意观察我给的上述例子。
 */
-function testKeyBoard(wantInput, actualInput) {
+function testKeyBoard (wantInput, actualInput) {
 
 }
 
@@ -71,7 +112,7 @@ function testKeyBoard(wantInput, actualInput) {
     ④只能显式使用一次循环。
     ⑤str为字符串。
 */
-function testSpecialReverse(str) {
+function testSpecialReverse (str) {
 }
 
 /*
@@ -89,7 +130,7 @@ function testSpecialReverse(str) {
     [ 1, 2 ]
 */
 
-function twoSum(nums, target) {
+function twoSum (nums, target) {
 }
 
 
@@ -104,7 +145,7 @@ function twoSum(nums, target) {
     ④使用console.log打印即可。
     ⑤str为字符串。
 */
-function lengthOfLongestSubstring(str) {
+function lengthOfLongestSubstring (str) {
 }
 
 /*
@@ -116,6 +157,6 @@ function lengthOfLongestSubstring(str) {
     并在三者分别添加sayHi、saySad、sayHappy函数分别打印"Hi,i am a developing country."、"I am a sad poor country."、"I am a Happy developed country."
     ②请调用他们并打印相关语句即可。
 */
-function Country() {
+function Country () {
     this.name = "国家";
 }
