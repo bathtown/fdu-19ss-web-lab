@@ -45,7 +45,43 @@ const check = setInterval(function () {
 
 ## problem 04
 
+解决思路：
+
+1.分别提取所有字符，用 set 特性去重，再比较
+
+```js
+function testKeyBoard(wantInput, actualInput) {
+  // 思路：分别提取所有字符，set 去重，再比较
+  // set 对于大小写字母是敏感的，全转化为 大/小 写
+  const wantInputArray = wantInput.toUpperCase().split('');
+  const actualInputArray = actualInput.toUpperCase().split('');
+  // 去重
+  let wantInputSet = new Set(wantInputArray);
+  // 比较
+  actualInputArray.forEach((x) => wantInputSet.delete(x));
+  console.log(wantInputSet);
+}
+```
+
 ## problem 05
+
+解决思路：
+
+1. 分组
+
+   ```js
+   const reversedStrArray = str.split(/\s+/); // 分组，删除中间空白
+   ```
+
+2. 倒置
+
+   ```js
+   for (let i = len - 1; i >= 0; i--) {
+     reversedStr = reversedStr + reversedStrArray[i] + ' ';
+   }
+   ```
+
+3. 输出
 
 ## problem 06
 

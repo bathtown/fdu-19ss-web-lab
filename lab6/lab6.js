@@ -36,7 +36,7 @@ function timeTest () {
         }
     }, 1000);
 }
-timeTest();
+// timeTest();
 
 /*
 2.
@@ -66,7 +66,7 @@ function testMail (telephone, mail) {
         console.log("The telephone is wrong and the mail is wrong!");
     }
 }
-testMail('12312312311', '12@qw.qw');
+// testMail('12312312311', '12@qw.qw');
 
 /*
 3.
@@ -97,8 +97,17 @@ function testRedundancy (str) {
     ①注意联系生活，并注意观察我给的上述例子。
 */
 function testKeyBoard (wantInput, actualInput) {
-
+    // 思路：分别提取所有字符，set 去重，再比较
+    // set 对于大小写字母是敏感的，全转化为 大/小 写
+    const wantInputArray = wantInput.toUpperCase().split('');
+    const actualInputArray = actualInput.toUpperCase().split('');
+    // 去重
+    let wantInputSet = new Set(wantInputArray);
+    // 比较
+    actualInputArray.forEach(x => wantInputSet.delete(x));
+    console.log(wantInputSet);
 }
+// testKeyBoard("7_This_is_a_test", "_hs_s_a_es");
 
 /*
 5.
@@ -113,7 +122,17 @@ function testKeyBoard (wantInput, actualInput) {
     ⑤str为字符串。
 */
 function testSpecialReverse (str) {
+    str = str.trim();// 删除两端空白
+    const reversedStrArray = str.split(/\s+/);// 分组，删除中间空白
+    const len = reversedStrArray.length;
+    let reversedStr = "";
+    for (let i = len - 1; i >= 0; i--) {
+        reversedStr = reversedStr + reversedStrArray[i] + " ";
+    }
+    console.log(reversedStr.trim());
 }
+// testSpecialReverse("  hello  world!  ");
+// testSpecialReverse("the sky is blue");
 
 /*
 6.
@@ -140,7 +159,7 @@ function twoSum (nums, target) {
     打印最长的包含不同字符串的子字符串长度。
 要求：
     ①使用Map。
-    ②例如：输入"abbbbb",输出1，输入"bbbbb",输出2；
+    ②例如：输入"abbbbb",输出2，输入"bbbbb",输出1；
     ③只能显式使用一次循环。
     ④使用console.log打印即可。
     ⑤str为字符串。
