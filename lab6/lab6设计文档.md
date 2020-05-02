@@ -146,6 +146,7 @@
 <img src="./img/lab6%20(1).png" width=1000px>
 <img src="./img/lab6%20(2).png" width=1000px>
 <img src="./img/lab6%20(3).png" width=1000px>
+<img src="./img/github.png" width=1000px>
 
 ## 相关知识
 
@@ -238,6 +239,44 @@
    let map = new Map(Object.entries(obj));
    ```
 
+### Array Object
+
+1. any type can fill into an Array
+2. **Dynamic Structure**
+3. last element needs no ","
+4. 👋 methods
+
+   | method                | explanation                                                | remark                                                   |
+   | --------------------- | ---------------------------------------------------------- | -------------------------------------------------------- |
+   | `.length`             | return array's lenghth                                     |
+   | `isArray()`           | whether is an Array                                        |
+   | `.valueOf()`          | return Array's value                                       | means the Array                                          |
+   | `toString()`          | change Array to "," divided String                         | `console.log(ArrayName)` and there is already `toString` |
+   | `join()`              | change an Array to String 👆                               | `[1, 2, 3, 4].join("*") // "1*2*3*4"`                    |
+   | `indexOf()`           | first position an element appear                           | none -> return -1                                        |
+   | `lastIndexOf()`       | last position an element appear                            | 👆                                                       |
+   | `delete`              | make it undefined, but length unchange                     | `delete array[2]; // array[2] => undefined`              |
+   | `pop()`               | **really** delete the **last** one, return its value       | `[].pop() // undefined`                                  |
+   | `push()`              | add at last, return the new Array's length                 |
+   | `shift()`             | **really** delete the **first** one, return its value      |
+   | `unshift()`           | add at first, return the new Array's length                |
+   | `concat()`            | return a new Array ( **origin is unchanged!** )            | `['a'].concat(['b'], ['!']) // ["a", "b", "!"]`          |
+   | `reverse()`           | reverse the **origin** Array                               |
+   | `splice()`            | **same as String method**                                  |
+   | `slice()`             | **same as String method**                                  |
+   | `forEach(function())` | function each element, and Array changed                   |
+   | `map(function())`     | like 👆, function each element, return a new Array         |
+   | `filter(function())`  | return a new Array with each pass the fuction              |
+   | `sort(function())`    | default is Dictionary order, but we can add an function 👇 |
+
+   - sort methods ( remember **return** is a **number** not a boolean)
+
+     | method                                              | explanation  |
+     | --------------------------------------------------- | ------------ |
+     | `sort(function(a, b){return a - b});`               | small -> big |
+     | `sort(function(a, b){return b - a});`               | big -> small |
+     | `sort(function(a, b){return 0.5 - Math.random()});` | random       |
+
 ### 继承
 
 1. 构造函数：一个内部使用了 this 变量的函数。对构造函数使用 new 运算符，就能生成实例，并且 this 变量会绑定在实例对象上
@@ -280,12 +319,23 @@
      }
      ```
 
+     缺点
+
+     - 实例并不是父类的实例，只是子类的实例
+     - 只能继承父类的实例属性和方法，不能继承原型属性和方法
+     - 每个子类都有父类实例函数的副本，无法实现函数复用
+
    - 原型链继承
 
      ```js
      Cat.prototype = new Animal(); // 修改原型
      Cat.prototype.constructor = Cat; // 修改原型后， Cat.prototype.constructor 为 Animal ，要重新改为 Cat
      ```
+
+     缺点
+
+     - 无法实现多继承
+     - 创建子类实例时，无法向父类构造函数传参
 
    - 寄生组合继承（利用空对象作为中介）
 
@@ -309,6 +359,8 @@
      }
      ```
 
+     近乎完美~
+
    - 拷贝继承
 
      ```js
@@ -326,6 +378,11 @@
      }
      ```
 
+     缺点：
+
+     - 效率较低，内存占用高（因为要拷贝父类的属性）
+     - 无法获取父类不可枚举的方法（不可枚举方法，不能使用 for in 访问到）
+
    - 实例继承
 
      ```js
@@ -336,6 +393,11 @@
        return instance;
      }
      ```
+
+     缺点：
+
+     - 实例是父类的实例，不是子类的实例
+     - 不支持多继承
 
    - 组合继承 = 构造继承 + 原型链继承
 
@@ -348,6 +410,8 @@
      Cat.prototype = new Animal();
      Cat.prototype.constructor = Cat;
      ```
+
+     缺点：调用了两次父类构造函数，生成了两份实例（子类实例将子类原型上的那份屏蔽了）
 
 5. ES6 引入 class 关键字（语法糖）
    - 必须用 new 调用
