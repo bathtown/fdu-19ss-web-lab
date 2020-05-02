@@ -9,7 +9,6 @@
     ①要求使用JS闭包的方式使得计数实现局部私有，不可以在全局区域声明计数变量。
     ②使用console.log打印计数即可，到达一分钟提前停止也需要console.log相应的提示语句。
 */
-
 function timeTest () {
     const start = new Date();
     let value = 1;
@@ -28,11 +27,11 @@ function timeTest () {
         // 到某一整分钟停止
         if (now.getMinutes() !== start.getMinutes()) {
             console.log("second is " + new Date().getSeconds() + " now. 到某一整分钟，停止。");
-            return clearInterval(check);
+            clearInterval(check); return;
         } // 运行10次停止
         else if (counter === 10) {
             console.log("value is " + value + " now, 运行10次，停止。");
-            return clearInterval(check);
+            clearInterval(check); return;
         }
     }, 1000);
 }
@@ -54,16 +53,16 @@ function testMail (telephone, mail) {
     let mailExpReg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
     if (teleRegExp.test(telephone) && (mailExpReg.test(mail))) {
         // 都对
-        console.log("The telephone is right and the mail is right!");
+        console.log("The telephone is right and the mail is right!"); return "The telephone is right and the mail is right!"
     } else if (!(mailExpReg.test(mail)) && teleRegExp.test(telephone)) {
         // 邮箱错了
-        console.log("The telephone is right and the mail is wrong!");
+        console.log("The telephone is right and the mail is wrong!"); return "The telephone is right and the mail is wrong!"
     } else if (mailExpReg.test(mail) && !(teleRegExp.test(telephone))) {
         // 电话错了
-        console.log("The telephone is wrong and the mail is right!");
+        console.log("The telephone is wrong and the mail is right!"); return "The telephone is wrong and the mail is right!"
     } else {
         // 都错了
-        console.log("The telephone is wrong and the mail is wrong!");
+        console.log("The telephone is wrong and the mail is wrong!"); return "The telephone is wrong and the mail is wrong!"
     }
 }
 // testMail('12312312311', '12@qw.qw');
@@ -78,9 +77,21 @@ function testMail (telephone, mail) {
     ⑤str为字符串。
 */
 function testRedundancy (str) {
-
+    var regExp = /\b([a-z]+) \1\b/gim;
+    let wordSet = new Set(str.match(regExp, "$1"))
+    // 按照首字母顺序
+    wordSet = new Set([...wordSet].sort(function (a, b) {
+        return a.localeCompare(b);
+    }));
+    // 如果集合中元素超过10个，则取前10个
+    if (wordSet.size > 10) {
+        wordSet = new Set([...wordSet].slice(0, 10));
+    }
+    console.log(wordSet); return wordSet;
 }
-
+// testRedundancy("Is is the iS is cost of of gasoline going up up");
+// testRedundancy("Zs zs Is is the iS is cost of of gasoline going up up");
+// testRedundancy("Zs zs rs Rs Ht ht yr yr Op op iu iu qwq qwq uu as as ii ii opo opo quq QuQ");
 
 /*
 4.
@@ -104,8 +115,8 @@ function testKeyBoard (wantInput, actualInput) {
     // 去重
     let wantInputSet = new Set(wantInputArray);
     // 比较
-    actualInputArray.forEach(x => wantInputSet.delete(x));
-    console.log(wantInputSet);
+    actualInputArray.forEach(name => wantInputSet.delete(name));
+    console.log(wantInputSet); return wantInputSet;
 }
 // testKeyBoard("7_This_is_a_test", "_hs_s_a_es");
 
@@ -129,7 +140,8 @@ function testSpecialReverse (str) {
     for (let i = len - 1; i >= 0; i--) {
         reversedStr = reversedStr + reversedStrArray[i] + " ";
     }
-    console.log(reversedStr.trim());
+    let outPut = reversedStr.trim();
+    console.log(outPut); return outPut;
 }
 // testSpecialReverse("  hello  world!  ");
 // testSpecialReverse("the sky is blue");
@@ -150,8 +162,18 @@ function testSpecialReverse (str) {
 */
 
 function twoSum (nums, target) {
+    const numMap = new Map();
+    const len = nums.length
+    for (let i = 0; i < len; i++) {
+        const targetNum = target - nums[i];
+        if (numMap.has(targetNum)) {
+            console.log([numMap.get(targetNum), i]); // console.log 出一个数组
+        }
+        numMap.set(nums[i], i); // 没有就添加，这里 key 和 value 不是常规意义上的 key 和 value
+    }
 }
-
+// twoSum([2, 7, 11, 15], 9);
+// twoSum([1, 2, 3, 4], 5);
 
 /*
 7.
@@ -165,7 +187,21 @@ function twoSum (nums, target) {
     ⑤str为字符串。
 */
 function lengthOfLongestSubstring (str) {
+    const len = str.length;
+    let maxlen = 0;
+    const map = new Map();
+    for (let i = 0, j = 0; i < len; i++) {
+        if (map.has(str[i])) {
+            j = Math.max(map.get(str[i]), j);
+        }
+        map.set(str[i], i + 1);
+        maxlen = Math.max(maxlen, i - j + 1);
+    }
+    console.log(maxlen); return maxlen;
 }
+// lengthOfLongestSubstring("abbbbb"); // 2
+// lengthOfLongestSubstring("abbacbbdb"); // 3
+// lengthOfLongestSubstring("bbbbb"); // 1
 
 /*
 8.
@@ -179,3 +215,100 @@ function lengthOfLongestSubstring (str) {
 function Country () {
     this.name = "国家";
 }
+// DevelopingCountry
+function DevelopingCountry () {
+    Country.call(this);
+}
+DevelopingCountry.prototype.sayHi = function () {
+    console.log("Hi,i am a developing country."); return "Hi,i am a developing country.";
+}
+// PoorCountry
+function PoorCountry () { };
+PoorCountry.prototype = new Country();
+PoorCountry.prototype.constructor = PoorCountry;
+PoorCountry.prototype.saySad = function () {
+    console.log("I am a sad poor country."); return "I am a sad poor country.";
+}
+// DevelopedCountry
+function DevelopedCountry () { Country.call(this); };
+DevelopedCountry.prototype = Object.create(Country.prototype);
+DevelopedCountry.prototype.constructor = DevelopedCountry;
+DevelopedCountry.prototype.sayHappy = function () {
+    console.log("I am a Happy developed country."); return "I am a Happy developed country.";
+}
+// test function
+function testInheritCountry () {
+    // initial
+    const developingCountry = new DevelopingCountry();
+    const poorCountry = new PoorCountry();
+    const developedCountry = new DevelopedCountry();
+
+    developingCountry.sayHi();
+    // console.log(developingCountry.name);
+    poorCountry.saySad();
+    // console.log(poorCountry.name);
+    developedCountry.sayHappy();
+    // console.log(developedCountry.name);
+}
+// testInheritCountry();
+
+/*
+test 函数，测试 lab6 的正确性
+*/
+function testLab6 () {
+    console.log('TEST LAB6:');
+
+    console.log('\n🖖test lab6 p1 at last...');
+
+    console.log('\n🖖test lab6 p2:');
+    console.log("expected: The telephone is wrong and the mail is right!, actual: 👇");
+    testMail('12312312311', '12@qw.qw');
+
+    console.log('\n🖖test lab6 p3:');
+    console.log("expected: Set { 'Is is', 'iS is', 'of of', 'up up' }, actual: 👇");
+    testRedundancy("Is is the iS is cost of of gasoline going up up");
+    console.log("expected: Set { 'iS is', 'Is is', 'of of', 'up up', 'Zs zs' }, actual: 👇");
+    testRedundancy("Zs zs Is is the iS is cost of of gasoline going up up");
+    console.log("expected: Set { 'as as', 'Ht ht', 'ii ii', 'iu iu', 'Op op', 'opo opo', 'quq QuQ', 'qwq wq', 'rs Rs', 'yr yr' }, actual: 👇");
+    testRedundancy("Zs zs rs Rs Ht ht yr yr Op op iu iu qwq qwq uu as as ii ii opo opo quq QuQ");
+
+    console.log('\n🖖test lab6 p4:');
+    console.log("expected: Set { '7', 'T', 'I' }, actual: 👇");
+    testKeyBoard("7_This_is_a_test", "_hs_s_a_es");
+
+    console.log('\n🖖test lab6 p5:');
+    console.log("expected: world! hello, actual: 👇");
+    testSpecialReverse("  hello  world!  ");
+    console.log("expected: blue is sky the, actual: 👇");
+    testSpecialReverse("the sky is blue");
+
+    console.log('\n🖖test lab6 p6:');
+    console.log("expected: [ 0, 1 ], actual: 👇");
+    twoSum([2, 7, 11, 15], 9);
+    console.log("expected: \n[ 1, 2 ]\n[ 0, 3 ]\n, actual: 👇");
+    twoSum([1, 2, 3, 4], 5);
+
+    console.log('\n🖖test lab6 p7:');
+    console.log("expected: 2, actual: 👇");
+    lengthOfLongestSubstring("abbbbb"); // 2
+    console.log("expected: 3, actual: 👇");
+    lengthOfLongestSubstring("abbacbbdb"); // 3
+    console.log("expected: 1, actual: 👇");
+    lengthOfLongestSubstring("bbbbb"); // 1
+
+    console.log('\n🖖test lab6 p8:');
+    console.log("expected: \nHi,i am a developing country.\nI am a sad poor country.\nI am a Happy developed country.\n, actual: 👇");
+    testInheritCountry();
+
+    console.log('\n🖖test lab6 p1:');
+    timeTest();
+}
+testLab6();
+
+/*
+另一种使用 nodejs 内建断言的测试，因为所有函数是 console.log 而不是 return ，所以会特别丑，就不用了
+Qunit 和 Jest 都太大了，舍去
+*/
+// let assert = require('assert'); // nodejs 内建断言
+// assert.deepEqual(testMail('12312312311', '12@qw.qw'), 'The telephone is wrong and the mail is right!', "lab6 p2 failed!");
+// ...
