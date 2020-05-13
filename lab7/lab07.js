@@ -11,7 +11,7 @@ const workFrame = document.createElement("div");
 workFrame.className = "item";
 
 // 4个组成
-const Genre = document.createElement("p");
+const Genre = document.createElement("h4");
 const authorNameContainer = document.createElement("div");
 const workPhotosContainer = document.createElement("div");
 const workButton = document.createElement("button");
@@ -37,7 +37,7 @@ authorNameContainer.appendChild(authorName);
 authorNameContainer.appendChild(liftime);
 
 // workPhotosContainer 内部
-const photoTitle = document.createElement("h4");
+const photoTitle = document.createElement("h3");
 workPhotosContainer.appendChild(photoTitle);
 
 // 双击效果
@@ -55,9 +55,9 @@ document.body.addEventListener("dblclick", () => {
         workTempt.childNodes[0].innerText = "Genre : " + work.tips;
         workTempt.getElementsByTagName("h3")[0].innerText = work.author;
         workTempt.getElementsByTagName("h5")[0].innerText = 'lifetime:' + work.lifetime;
-        workTempt.getElementsByTagName("h4")[0].innerText = 'Popular Photos';
+        workTempt.getElementsByTagName("h3")[1].innerText = 'Popular Photos';
 
-        let photoTitle = workTempt.getElementsByTagName("h4")[0];
+        let photoTitle = workTempt.getElementsByTagName("h3")[1];
         work.photos.forEach(photoSrc => {
             let photoImg = document.createElement("img");
             photoImg.className = "photo"
