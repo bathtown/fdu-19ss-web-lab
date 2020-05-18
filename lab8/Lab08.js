@@ -3,6 +3,11 @@
 /********************************************begin************************************/
 
 /*Global Variable Area */
+const arrows = document.getElementsByTagName("a");
+const leftArrow = arrows[0];
+const rightArrow = arrows[1];
+const wrap = document.getElementsByClassName("wrap")[0];
+const buttons = document.getElementsByClassName("buttons")[0];
 
 /*********************************************end*************************************/
 
@@ -23,6 +28,42 @@
 /********************************************begin************************************/
 
 /*Code Here*/
+
+function nextImg () {
+  // 切换图片
+  let leftVal = parseInt(wrap.style.left);
+  if (leftVal === -3600) wrap.style.left = '-1200px';
+  else wrap.style.left = (leftVal - 600) + 'px';
+  // 变换按钮
+  const onButton = buttons.getElementsByClassName('on')[0];
+  if (onButton.nextElementSibling) {
+    onButton.nextElementSibling.classList.add('on');
+    onButton.classList.remove('on');
+  }
+  else {
+    buttons.firstElementChild.classList.add('on');
+    onButton.classList.remove('on');
+  }
+}
+
+function prevImg () {
+  let leftVal = parseInt(wrap.style.left);
+  if (leftVal === 0) wrap.style.left = '-2400px';
+  else wrap.style.left = (leftVal + 600) + 'px';
+  // 变换按钮
+  const onButton = buttons.getElementsByClassName('on')[0];
+  if (onButton.previousElementSibling) {
+    onButton.previousElementSibling.classList.add('on');
+    onButton.classList.remove('on');
+  }
+  else {
+    buttons.lastElementChild.classList.add('on');
+    onButton.classList.remove('on');
+  }
+}
+
+leftArrow.addEventListener("click", prevImg);
+rightArrow.addEventListener("click", nextImg);
 
 /*********************************************end*************************************/
 
