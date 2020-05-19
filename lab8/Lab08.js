@@ -3,11 +3,13 @@
 /********************************************begin************************************/
 
 /*Global Variable Area */
+const container = document.getElementsByClassName("container")[0];
+const wrap = document.getElementsByClassName("wrap")[0];
 const arrows = document.getElementsByTagName("a");
 const leftArrow = arrows[0];
 const rightArrow = arrows[1];
-const wrap = document.getElementsByClassName("wrap")[0];
 const buttons = document.getElementsByClassName("buttons")[0];
+let autoplay;
 
 /*********************************************end*************************************/
 
@@ -82,6 +84,10 @@ rightArrow.addEventListener("click", nextImg);
 
 /*Code Here*/
 
+window.addEventListener("load", () => { autoplay = setInterval(() => { nextImg(); }, 2000) });
+container.addEventListener("mouseleave", () => { autoplay = setInterval(() => { nextImg(); }, 2000) });
+container.addEventListener("mouseenter", () => { clearInterval(autoplay) });
+
 /*********************************************end*************************************/
 
 
@@ -97,6 +103,23 @@ rightArrow.addEventListener("click", nextImg);
 
 /*Code Here*/
 
+// Element node's nodeType === 1
+// or we can use buttons.getElementsByTagName()
+
+for (const node of buttons.childNodes) {
+  if (node.nodeType === 1) {
+    const button = node;
+    button.addEventListener("click", () => {
+      const num = button.innerText;
+      wrap.style.left = `${-600 * num}px`;
+      // remove className 'on'
+      buttons.getElementsByClassName('on')[0].classList.remove('on');
+      // add className 'on'
+      button.classList.add('on');
+    });
+  }
+}
+
 /*********************************************end*************************************/
 
 
@@ -110,5 +133,23 @@ rightArrow.addEventListener("click", nextImg);
 /********************************************begin************************************/
 
 /*Code Here*/
+for (const cell of $('td')) {
+  cell.contentEditable = true;
+  cell.addEventListener('click', () => { setPosition(cell) });
+}
+
+const setPosition = function (element, pos = 0) {
+  const range = document.createRange(); // a range
+  range.selectNodeContents(element);
+  if (element.innerHTML.length > 0) {
+    range.setStart(element.childNodes[0], pos);
+  }
+  range.collapse(true);
+
+  const selection = window.getSelection(); // a selection
+  selection.removeAllRanges();
+  selection.addRange(range);
+}
+
 
 /*********************************************end*************************************/
