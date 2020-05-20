@@ -133,10 +133,6 @@ for (const node of buttons.childNodes) {
 /********************************************begin************************************/
 
 /*Code Here*/
-for (const cell of $('td')) {
-  cell.contentEditable = true;
-  cell.addEventListener('click', () => { setPosition(cell) });
-}
 
 const setPosition = function (element, pos = 0) {
   const range = document.createRange(); // a range
@@ -151,5 +147,8 @@ const setPosition = function (element, pos = 0) {
   selection.addRange(range);
 }
 
-
+$('td').click(function () {
+  $(this).attr("contentEditable", true)
+  setPosition($(this)[0]);
+});
 /*********************************************end*************************************/

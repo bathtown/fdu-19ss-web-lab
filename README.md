@@ -581,12 +581,16 @@
 
 ## lab5
 
-见 [lab5设计文档](./lab5/lab5设计文档%20.md)
+见 [lab5 设计文档](./lab5/lab5设计文档%20.md)
 
 ## lab6
 
-见 [lab6设计文档](./lab6/lab6设计文档.md)
+见 [lab6 设计文档](./lab6/lab6设计文档.md)
 
 ## lab7
 
-见 [lab7设计文档](./lab7/lab7设计文档.md)
+见 [lab7 设计文档](./lab7/lab7设计文档.md)
+
+## lab8
+
+见 [lab8 设计文档](./lab8/lab8设计文档.md)
