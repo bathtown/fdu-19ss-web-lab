@@ -597,4 +597,8 @@
 
 ## lab9
 
-略
+skipped
+
+## lab10
+
+see [lab10doc.md](./lab10/lab10doc.md)
