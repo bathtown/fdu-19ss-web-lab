@@ -1,7 +1,6 @@
 <?php
 define('DBHOST', 'localhost');
-define('DBNAME', 'art');
-define('DBUSER', 'root');
-define('DBPASS', '123456');
-define('DBCONNSTRING','mysql:host=localhost;dbname=art');
-?>
+define('DBNAME', 'login');
+define('DBUSER', 'testuser');
+define('DBPASS', 'mypassword');
+define('DBCONNSTRING', 'mysql:dbname=login;charset=utf8mb4;');
