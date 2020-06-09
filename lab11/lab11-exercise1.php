@@ -39,20 +39,21 @@
         require_once("config.php");
 
         $loggedIn = false;
+        session_start();
 
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
           if (validLogin()) {
             // add 1 day to the current time for expiry time   
-            $expiryTime = time() + 60 * 60 * 24;
-            setcookie("Username", $_POST['username'], $expiryTime);
+            // $expiryTime = time() + 60 * 60 * 24;
+            $_SESSION['Username'] = $_POST['username'];
             echo "Welcome " . $_POST['username'];
             $loggedIn = true;
           } else if (!isset($_COOKIE['Username'])) {
             echo "login unsuccessful";
           }
-        } else if (isset($_COOKIE['Username'])) {
+        } else if (isset($_SESSION['Username'])) {
           $loggedIn = true;
-          echo "Welcome " . $_COOKIE['Username'];
+          echo "Welcome " . $_SESSION['Username'];
         } else {
           echo "No Post detected";
         }
